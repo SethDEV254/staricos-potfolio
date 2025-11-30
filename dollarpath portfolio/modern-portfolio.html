@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dollarpath</title>
+    <meta name="description" content="This is Dollarpath's portfolio containing his projects, blog posts, resume and contact informatin.">
+    path.me">
+    <meta nth">
+    <meta n">
+    <meta name="creato
+    <meta name="publish">
+    <meta name="robots" content="in
+    <meta:-1">
+e">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" conten
+    <meta property="og:description" .">
+    <meta property="og:url" content="h>
+    <meta property="og:site_na
+    <meta property="og:locale" conte
+    <meta property="og:image" g">
+    <meta
+30">
+    <meta prop">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card">
+    <meta name="twitter:creator>
+    <meta
+">
+    <meta name="twitter:o.jpg">
+    
+    <link rel="icon" href="/
+    <link rel="icono">
+    
+    <style>
+        :root {
+            --font-sans: u-serif;
+            --font-mono: ui-
+        }
+
+  * {
+            box-sizing: x;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior:oth;
+        }
+
+        body {
+            font-family: var(-
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+         liased;
+scale;
+        }
+
+        /* Header */
+        header {
+         ;
+0;
+            width: 100%;
+            background: rgba(255, 255, 25
+            backdrop-filter: blur(
+            border-bottom: 1p;
+            z-index: 1000;
+         1rem 0;
+       }
+
+        nav {
+          1200px;
+;
+            display: flex;
+            jusbetween;
+            align-items: center;
+            padding: 0 2re;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+         000;
+;
+        }
+
+        .nav-links {
+         x;
+ none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s
+        }
+
+        .nav-links a:hovr {
+            color: #000;
+        }
+
+        / */
+
+            padding-top: 80
+        }
+
+        .container {
+            max-width: 1200px
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height;
+            display: flex;
+            align-items: cenr;
+         ;
+
+            ba0%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem,
+         : 800;
+: 1rem;
+            background
+            -webkit-background-clip: t
+            -webkit-text-fill-color: ent;
+         
+
+
+        .hero p {
+            font-size: 1.25rem;
+         
+
+            max-width: 6px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+ {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+         
+ }
+
+        .btn {
+            display: inline-block;
+         
+0px;
+            text-dec: none;
+            font-weight: 600;
+            transition: all
+            border: 2px soli;
+        }
+
+        .btn-primary {
+            background: linear);
+            color: white;
+        }
+
+        .btn-primary:hover {
+         ;
+0.3);
+        }
+
+        .btn-secondary {
+         
+7eea;
+            border-color;
+        }
+
+        .btn-secondaryver {
+            background: #667eea;
+         te;
+ }
+
+        /* Sections */
+        .tion {
+0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-colr 1fr;
+            gap: 4rem;
+         r;
+ }
+
+        .about-text {
+         m;
+ht: 1.8;
+            color: #666;
+        }
+
+        .about-text h3 {
+            color: #33
+         m: 1rem;
+ 1.5rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .-card {
+ite;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba
+         block;
+   }
+
+        .avatar {
+            width: 200px;
+         ;
+
+            background: 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         
+
+            color: white;
+            margin: 0 auto 1rem;
+        }
+
+
+        .skills-grid {
+            display: grid;
+            grid-template-co));
+            gap: 2rem;
+        }
+
+        .skill
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transfo
+        }
+
+n {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-rad
+         
+
+            justify-con;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-card h3 {
+         em;
+3;
+        }
+
+        .skill-card p {
+         
+
+
+        /* Projects Sectio/
+        .projects {
+            background: #f
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-colur));
+         
+}
+
+        .project-card {
+         ;
+5px;
+            overflow: hidden;
+            box-shadow: 0 5px , 0.08);
+            transition: transforease;
+        }
+
+r {
+            transform: trans(-10px);
+        }
+
+        .{
+
+            background:00%);
+            display: flex;
+            align-items: cener;
+            justify-cont
+            color: white;
+         em;
+
+        }
+
+        .project-content {
+         ;
+
+
+        .project-content h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .tag {
+            background: #e9ecef;
+            color: #495057;
+            padding: 0.25rem 0.7;
+         0px;
+m;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #667eea
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0e;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+        }
+
+        /ection */
+ntent {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-lin
+            displlex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-li
+            display: flex;
+         ter;
+rem;
+            padding: 1reem;
+            background: #f8f9fa;
+            color: #333;
+            text-decoration: none;
+            b
+0.3s ease;
+        }
+
+        .contact-link:hove {
+            background: #667eea;
+            chite;
+px);
+        }
+
+        /* Footer */
+        footer {
+;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive/
+        @media (max-width: 76 {
+            .nav-links {
+                display: none;
+            }
+
+
+                grid-tem
+                gap: 2rem;
+            }
+
+            .cta-buttons {
+             
+                : center;
+            }
+
+            .
+         lumn;
+
+            }
+
+         
+rem;
+            }
+        }
+
+        /
+p {
+            from {
+                opacity: 0;
+         px);
+}
+            to {
+                opacity: 1;
+                transform: tranlateY(0);
+         }
+
+
+        .fade-in {
+         ;
+        }
+    </s>
+</head
+<body class="antialiased">
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="lopath</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <
+            </
+        </av>
+ader>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Dollarpath</h1>
+                <p>Full Stack Developer & Software Engineer crafting exceptional /p>
+                ns">
+                    <a href="#project/a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touc</a>
+                </div>
+            </div>
+        </sectn>
+
+ction -->
+        <section id="aboutbout">
+            <div class="container">
+                <h2 class="secte</h2>
+                <div class="about-grid">
+                    <div class="about-t
+                        <h3>Hello, I'm Do3>
+                        <p>
+                      . 
+                            I love creato 
+                       ns.
+                        </p>
+                        <p>
+                            With a strong foundation in both frontend and backend developme ideas 
+                            to life through clean, maintainable codnologies 
+                        
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <div class="profile-card">
+                            <div class="avatar">DP</div>
+                        </h3>
+                       p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sn -->
+        <secti>
+>
+                <h2 class=">
+                <div class="skills-grid">
+                    <div class=ard">
+                        <div class="skill-icon">💻</div>
+                        <h3>Frontend 
+                        <p>Creating resp/p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">⚙️</div>
+                        <h3>Backend Developm
+                        <p>Building robust APIs and se/p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🎨</div>
+                        <hign</h3>
+                      .</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class
+                    <dd">
+                        <div class="proj
+                        <div class="project-content">
+                            <h3>E-Commerce /h3>
+                            <p>A full-featured online shopping platform with payment integration, user aut
+                            <div class="proj
+                                <span class="tag">Re/span>
+                                <span class="tag">Node.>
+                                <span class="tag">Mongospan>
+                                <span class="tag">Stripe</span>
+                          >
+                      
+                  </a>
+              >
+              </div>
+div>
+                    </div>
+
+                    <div class=
+                        <div class="project-image">TaskFlow<
+                        <div class="pro">
+                            <h3>Project Ma
+                            <p>A collaborative project manageme/p>
+                            <div class="project-tags">
+                                <span class="tag">Vue.js</s>
+                                <span class="tag">Express</span>
+                                <span class="tag">
+                                <span class="tag">PostgreSQLspan>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-li
+                              
+                            </div>
+                        </div>
+                    </div>
+
+                    <div c">
+                      div>
+ntent">
+                            <h3>Weather Dah3>
+                            <p>A responsive weather applicati</p>
+                            <div class="project-t">
+                                <span class="tag">JavaScspan>
+                                <span class="tag">Chart.js</span>
+                                <span class="tag">>
+                                <span class="tag">CSS3</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-l
+                              ub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Let's Work Toge>
+                <div class="contact-content">
+                    <p>I'm always interested in ner!</p>
+                    <div class="contact-links">
+                        <a href="mailto:contact@dollarpath
+                            📧 Email Me
+                        </a>
+                        <a hrek">
+                            💼 LinkedIn
+                        </a>
+                        <a href="https://github.com/dollarpath" class="conk">
+                            🐙
+                        </
+                      nk">
+                  er
+              >
+              >
+v>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dollarpath. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener {
+                e.prevenault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    targ({
+                        behavior: 'smooth',
+                        block: 'st
+                    });
+                }
+            });
+        });
+
+ns
+        const obser
+            threshold: 0.1,
+            rootMargin: '0px 0p
+        };
+
+        const
+ {
+            
+                    entry.tn');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sectios
+        document.querySelectorAll('.section
+            observer.observe(section);
+        });
+
+        // Header
+        window.() => {
+           ;
+
+                header.style.background = 'rgba';
+            } else {
+                header.styl)';
+            }
+        })
+>
+</body>
+</html>

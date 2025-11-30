@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Tester - Backend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #60a5fa;
+        }
+        
+        .test-section {
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #334155;
+        }
+        
+        .test-section h2 {
+            color: #60a5fa;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        button:hover {
+            background: #2563eb;
+        }
+        
+        button:disabled {
+            background: #475569;
+            cursor: not-allowed;
+        }
+        
+        .result {
+            background: #0f172a;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            border: 1px solid #334155;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .success {
+            color: #10b981;
+        }
+        
+        .error {
+            color: #ef4444;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .status.online {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+        
+        .status.offline {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+        
+        .info {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid #3b82f6;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Backend API Tester</h1>
+        
+        <div class="info">
+            <strong>Backend URL:</strong> <span id="backend-url">http://localhost:5000</span><br>
+            <strong>Status:</strong> <span id="status" class="status offline">Checking...</span>
+        </div>
+        
+        <!-- Health Check -->
+        <div class="test-section">
+            <h2>1. Health Check</h2>
+            <button onclick="testHealth()">Test Health Endpoint</button>
+            <div id="health-result" class="result"></div>
+        </div>
+        
+        <!-- Projects API -->
+        <div class="test-section">
+            <h2>2. Projects API</h2>
+            <button onclick="testProjects()">Get All Projects</button>
+            <button onclick="testProjectsFiltered()">Get Blockchain Projects</button>
+            <button onclick="testProjectsFeatured()">Get Featured Projects</button>
+            <button onclick="testSingleProject()">Get Single Project</button>
+            <div id="projects-result" class="result"></div>
+        </div>
+        
+        <!-- Contact API -->
+        <div class="test-section">
+            <h2>3. Contact Form API</h2>
+            <button onclick="testContact()">Test Contact Form</button>
+            <div id="contact-result" class="result"></div>
+        </div>
+        
+        <!-- Analytics API -->
+        <div class="test-section">
+            <h2>4. Analytics API</h2>
+            <button onclick="testPageView()">Test Page View</button>
+            <button onclick="testEvent()">Test Event Tracking</button>
+            <div id="analytics-result" class="result"></div>
+        </div>
+    </div>
+    
+    <script>
+        const API_BASE = 'http://localhost:5000';
+        
+        // Check backend status on load
+        window.addEventListener('DOMContentLoaded', async () => {
+            await checkStatus();
+        });
+        
+        async function checkStatus() {
+            const statusEl = document.getElementById('status');
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                if (response.ok) {
+                    statusEl.textContent = '● Online';
+                    statusEl.className = 'status online';
+                } else {
+                    statusEl.textContent = '● Offline';
+                    statusEl.className = 'status offline';
+                }
+            } catch (error) {
+                statusEl.textContent = '● Offline';
+                statusEl.className = 'status offline';
+            }
+        }
+        
+        function displayResult(elementId, data, isError = false) {
+            const el = document.getElementById(elementId);
+            el.className = `result ${isError ? 'error' : 'success'}`;
+            el.textContent = JSON.stringify(data, null, 2);
+        }
+        
+        async function testHealth() {
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                const data = await response.json();
+                displayResult('health-result', data);
+            } catch (error) {
+                displayResult('health-result', { error: error.message }, true);
+            }
+        }
+        
+        async function testProjects() {
+            try {
+                const response = await fetch(`${API_BASE}/api/projects`);
+                const data = await response.json();
+                displayResult('projects-result', data);
+            } catch (error) {
+                displayResult('projects-result', { error: error.message }, true);
+            }
+        }
+        
+        async function testProjectsFiltered() {
+            try {
+                const response = await fetch(`${API_BASE}/api/projects?category=blockchain`);
+                const data = await response.json();
+                displayResult('projects-result', data);
+            } catch (error) {
+                displayResult('projects-result', { error: error.message }, true);
+            }
+        }
+        
+        async function testProjectsFeatured() {
+            try {
+                const response = await fetch(`${API_BASE}/api/projects?featured=true`);
+                const data = await response.json();
+                displayResult('projects-result', data);
+            } catch (error) {
+                displayResult('projects-result', { error: error.message }, true);
+            }
+        }
+        
+        async function testSingleProject() {
+            try {
+                const response = await fetch(`${API_BASE}/api/projects/1`);
+                const data = await response.json();
+                displayResult('projects-result', data);
+            } catch (error) {
+                displayResult('projects-result', { error: error.message }, true);
+            }
+        }
+        
+        async function testContact() {
+            try {
+                const response = await fetch(`${API_BASE}/api/contact`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: 'Test User',
+                        email: 'test@example.com',
+                        subject: 'API Test',
+                        message: 'This is a test message from the API tester.'
+                    })
+                });
+                const data = await response.json();
+                displayResult('contact-result', data, !response.ok);
+            } catch (error) {
+                displayResult('contact-result', { error: error.message }, true);
+            }
+        }
+        
+        async function testPageView() {
+            try {
+                const response = await fetch(`${API_BASE}/api/analytics/pageview`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        page: '/test',
+                        referrer: 'http://localhost',
+                        userAgent: navigator.userAgent
+                    })
+                });
+                const data = await response.json();
+                displayResult('analytics-result', data);
+            } catch (error) {
+                displayResult('analytics-result', { error: error.message }, true);
+            }
+        }
+        
+        async function testEvent() {
+            try {
+                const response = await fetch(`${API_BASE}/api/analytics/event`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        event: 'test_event',
+                        category: 'testing',
+                        label: 'api_tester',
+                        value: 1
+                    })
+                });
+                const data = await response.json();
+                displayResult('analytics-result', data);
+            } catch (error) {
+                displayResult('analytics-result', { error: error.message }, true);
+            }
+        }
+    </script>
+</body>
+</html>

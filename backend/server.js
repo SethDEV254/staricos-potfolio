@@ -44,7 +44,11 @@ app.use('/api/analytics', require('./routes/analytics'));
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  res.json({ 
+    status: 'ok', 
+    timestamp: new Date().toISOString(),
+    database: process.env.MONGODB_URI ? 'configured' : 'not configured'
+  });
 });
 
 // 404 handler

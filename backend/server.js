@@ -48,10 +48,17 @@ app.use('/api/analytics', require('./routes/analytics'));
 
 // Health check
 app.get('/health', (req, res) => {
+  const mongoose = require('mongoose');
+  const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
+  
   res.json({ 
     status: 'ok', 
     timestamp: new Date().toISOString(),
-    database: process.env.MONGODB_URI ? 'configured' : 'not configured'
+    database: {
+      configured: !!process.env.MONGODB_URI,
+      status: dbStatus
+    },
+    message: 'Portfolio API is running'
   });
 });
 

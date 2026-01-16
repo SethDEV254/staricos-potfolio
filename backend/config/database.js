@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   // Skip database connection if no URI is provided
   if (!process.env.MONGODB_URI) {
-    console.log('MongoDB URI not provided - running without database');
-    return;
+    console.log('⚠️  MongoDB URI not provided - running without database');
+    console.log('✅ Site will work, but contact form won\'t save to database');
+    return null;
   }
 
   try {
@@ -13,11 +14,12 @@ const connectDB = async () => {
       useUnifiedTopology: true
     });
     
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+    return conn;
   } catch (error) {
-    console.error(`MongoDB Connection Error: ${error.message}`);
-    console.log('Continuing without database...');
-    // Don't exit - continue without database
+    console.error(`❌ MongoDB Connection Error: ${error.message}`);
+    console.log('⚠️  Continuing without database - site will still work');
+    return null;
   }
 };
 

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Starico Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid #475569;
+        }
+
+        .header h1 {
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: #1e293b;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab:hover, .tab.active {
+            background: #3b82f6;
+            border-color: #3b82f6;
+        }
+
+        .tab-content {
+            display: none;
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #475569;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: #334155;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+
+        .stat-label {
+            color: #cbd5e1;
+            font-size: 0.875rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #cbd5e1;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            background: #0f172a;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            color: #f1f5f9;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .table th,
+        .table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #475569;
+        }
+
+        .table th {
+            background: #334155;
+            color: #3b82f6;
+        }
+
+        .table tr:hover {
+            background: #334155;
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .badge-warning {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            background: #10b981;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: none;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            display: block;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 10% auto;
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #475569;
+        }
+
+        .login-container h2 {
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+        <h2>🔐 Admin Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Login</button>
+        </form>
+        <p style="text-align: center; margin-top: 1rem; color: #cbd5e1; font-size: 0.875rem;">
+            Default: admin / admin123
+        </p>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" style="display: none;">
+        <div class="container">
+            <div class="header">
+                <h1>📊 Admin Dashboard</h1>
+                <p>Manage your portfolio content and view analytics</p>
+                <button onclick="logout()" class="btn btn-danger" style="margin-top: 1rem;">Logout</button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('overview')">Overview</div>
+                <div class="tab" onclick="showTab('projects')">Projects</div>
+                <div class="tab" onclick="showTab('contacts')">Contacts</div>
+                <div class="tab" onclick="showTab('analytics')">Analytics</div>
+                <div class="tab" onclick="showTab('settings')">Settings</div>
+            </div>
+
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <h2>Dashboard Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalProjects">0</div>
+                        <div class="stat-label">Total Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalContacts">0</div>
+                        <div class="stat-label">Contact Messages</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalVisits">0</div>
+                        <div class="stat-label">Total Visits</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="todayVisits">0</div>
+                        <div class="stat-label">Today's Visits</div>
+                    </div>
+                </div>
+
+                <h3>Recent Activity</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentActivity">
+                        <tr>
+                            <td>Contact</td>
+                            <td>New message from John Doe</td>
+                            <td>2 hours ago</td>
+                            <td><span class="badge badge-success">New</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Projects Tab -->
+            <div id="projects" class="tab-content">
+                <h2>Manage Projects</h2>
+                <button onclick="showAddProject()" class="btn">+ Add New Project</button>
+                
+                <div id="addProjectForm" style="display: none; margin-top: 2rem;">
+                    <h3>Add New Project</h3>
+                    <form onsubmit="addProject(event)">
+                        <div class="form-group">
+                            <label>Project Title</label>
+                            <input type="text" id="projectTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="projectDescription" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Technologies</label>
+                            <input type="text" id="projectTech" placeholder="React, Node.js, MongoDB">
+                        </div>
+                        <div class="form-group">
+                            <label>GitHub URL</label>
+                            <input type="url" id="projectGithub">
+                        </div>
+                        <div class="form-group">
+                            <label>Live URL</label>
+                            <input type="url" id="projectLive">
+                        </div>
+                        <button type="submit" class="btn">Save Project</button>
+                        <button type="button" onclick="hideAddProject()" class="btn btn-danger">Cancel</button>
+                    </form>
+                </div>
+
+                <table class="table" style="margin-top: 2rem;">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Technologies</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projectsList">
+                        <!-- Projects will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Contacts Tab -->
+            <div id="contacts" class="tab-content">
+                <h2>Contact Messages</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactsList">
+                        <!-- Contacts will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div id="analytics" class="tab-content">
+                <h2>Analytics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">1,234</div>
+                        <div class="stat-label">Page Views (30 days)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">567</div>
+                        <div class="stat-label">Unique Visitors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">89</div>
+                        <div class="stat-label">Avg. Session Duration (sec)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">45%</div>
+                        <div class="stat-label">Bounce Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings" class="tab-content">
+                <h2>Settings</h2>
+                <form onsubmit="saveSettings(event)">
+                    <div class="form-group">
+                        <label>Site Title</label>
+                        <input type="text" value="Starico's Portfolio">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" value="dollarpath1@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label>GitHub URL</label>
+                        <input type="url" value="https://github.com/dollarpath1">
+                    </div>
+                    <div class="form-group">
+                        <label>LinkedIn URL</label>
+                        <input type="url" value="https://linkedin.com/in/starico">
+                    </div>
+                    <button type="submit" class="btn">Save Settings</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script>
+        // Simple authentication
+        const ADMIN_USER = 'admin';
+        const ADMIN_PASS = 'admin123';
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === ADMIN_USER && password === ADMIN_PASS) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'block';
+                loadDashboardData();
+                showNotification('Login successful!');
+            } else {
+                showNotification('Invalid credentials!', 'error');
+            }
+        });
+
+        function logout() {
+            document.getElementById('loginScreen').style.display = 'block';
+            document.getElementById('adminDashboard').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function showAddProject() {
+            document.getElementById('addProjectForm').style.display = 'block';
+        }
+
+        function hideAddProject() {
+            document.getElementById('addProjectForm').style.display = 'none';
+        }
+
+        function addProject(e) {
+            e.preventDefault();
+            // Add project logic here
+            showNotification('Project added successfully!');
+            hideAddProject();
+            loadProjects();
+        }
+
+        function saveSettings(e) {
+            e.preventDefault();
+            showNotification('Settings saved successfully!');
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.background = type === 'error' ? '#ef4444' : '#10b981';
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        function loadDashboardData() {
+            // Load stats
+            document.getElementById('totalProjects').textContent = '12';
+            document.getElementById('totalContacts').textContent = '45';
+            document.getElementById('totalVisits').textContent = '1,234';
+            document.getElementById('todayVisits').textContent = '89';
+
+            loadProjects();
+            loadContacts();
+        }
+
+        function loadProjects() {
+            const projectsList = document.getElementById('projectsList');
+            projectsList.innerHTML = `
+                <tr>
+                    <td>Portfolio Website</td>
+                    <td>React, Node.js, MongoDB</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>
+                        <button class="btn" style="padding: 0.5rem 1rem;">Edit</button>
+                        <button class="btn btn-danger" style="padding: 0.5rem 1rem;">Delete</button>
+                    </td>
+                </tr>
+            `;
+        }
+
+        function loadContacts() {
+            const contactsList = document.getElementById('contactsList');
+            contactsList.innerHTML = `
+                <tr>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>Project Inquiry</td>
+                    <td>2024-01-15</td>
+                    <td>
+                        <button class="btn" style="padding: 0.5rem 1rem;">View</button>
+                        <button class="btn btn-danger" style="padding: 0.5rem 1rem;">Delete</button>
+                    </td>
+                </tr>
+            `;
+        }
+    </script>
+</body>
+</html>

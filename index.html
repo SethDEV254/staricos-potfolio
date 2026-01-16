@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Primary Meta Tags -->
     <title>Starico</title>
     <meta name="title" content="Starico's Portfolio">
-    <meta name="description" content="This is Starico's portfolio containing his projects, blog posts, resume and contact information.">
+    <meta name="description"
+        content="This is Starico's portfolio containing his projects, blog posts, resume and contact information.">
     <meta name="author" content="Starico">
     <meta name="keywords" content="portfolio, resume, blog, projects, developer, software engineer">
     <meta name="creator" content="starico">
@@ -16,31 +18,33 @@
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1">
     <link rel="author" href="https://starico.me">
     <link rel="canonical" href="https://starico.me">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://starico.me">
     <meta property="og:title" content="Starico's Portfolio">
-    <meta property="og:description" content="This is Starico's portfolio containing his projects, blog posts, resume and contact information.">
+    <meta property="og:description"
+        content="This is Starico's portfolio containing his projects, blog posts, resume and contact information.">
     <meta property="og:site_name" content="Starico">
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://starico.me/images/starico.jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Starico Portfolio">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://starico.me">
     <meta name="twitter:title" content="Starico's Portfolio">
-    <meta name="twitter:description" content="This is Starico's portfolio containing his projects, blog posts, resume and contact information.">
+    <meta name="twitter:description"
+        content="This is Starico's portfolio containing his projects, blog posts, resume and contact information.">
     <meta name="twitter:image" content="https://starico.me/images/starico.jpeg">
     <meta name="twitter:creator" content="@dollarpath_ke">
-    
+
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16">
     <link rel="icon" href="/favicon.ico">
-    
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -58,12 +62,15 @@
       ]
     }
     </script>
-    
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="nav">
@@ -76,13 +83,27 @@
             </a>
             <div class="nav-right">
                 <ul class="nav-menu">
-                    <li><a href="#" class="nav-link" onclick="executeCommand('help'); document.getElementById('terminal-input').focus(); return false;">help</a></li>
-                    <li><a href="#" class="nav-link" onclick="executeCommand('about'); document.getElementById('terminal-input').focus(); return false;">about</a></li>
-                    <li><a href="#" class="nav-link" onclick="executeCommand('projects'); document.getElementById('terminal-input').focus(); return false;">projects</a></li>
-                    <li><a href="#" class="nav-link" onclick="executeCommand('skills'); document.getElementById('terminal-input').focus(); return false;">skills</a></li>
-                    <li><a href="#" class="nav-link" onclick="executeCommand('experience'); document.getElementById('terminal-input').focus(); return false;">experience</a></li>
-                    <li><a href="#" class="nav-link" onclick="executeCommand('education'); document.getElementById('terminal-input').focus(); return false;">education</a></li>
-                    <li><a href="#" class="nav-link" onclick="executeCommand('contact'); document.getElementById('terminal-input').focus(); return false;">contact</a></li>
+                    <li><a href="#" class="nav-link"
+                            onclick="executeCommand('help'); document.getElementById('terminal-input').focus(); return false;">help</a>
+                    </li>
+                    <li><a href="#" class="nav-link"
+                            onclick="executeCommand('about'); document.getElementById('terminal-input').focus(); return false;">about</a>
+                    </li>
+                    <li><a href="#" class="nav-link"
+                            onclick="executeCommand('projects'); document.getElementById('terminal-input').focus(); return false;">projects</a>
+                    </li>
+                    <li><a href="#" class="nav-link"
+                            onclick="executeCommand('skills'); document.getElementById('terminal-input').focus(); return false;">skills</a>
+                    </li>
+                    <li><a href="#" class="nav-link"
+                            onclick="executeCommand('experience'); document.getElementById('terminal-input').focus(); return false;">experience</a>
+                    </li>
+                    <li><a href="#" class="nav-link"
+                            onclick="executeCommand('education'); document.getElementById('terminal-input').focus(); return false;">education</a>
+                    </li>
+                    <li><a href="#" class="nav-link"
+                            onclick="executeCommand('contact'); document.getElementById('terminal-input').focus(); return false;">contact</a>
+                    </li>
                 </ul>
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -118,31 +139,32 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Terminal Side -->
             <div class="hero-terminal">
                 <div class="terminal-body" id="terminal-body">
-                        <div class="welcome-text">
-                            <p><span style="color: #00ff00;">starico@portfolio:~$</span> welcome</p>
-                            <p>type 'help' for available commands</p>
-                            <br>
-                            <p id="welcome-intro"></p>
-                            <br>
-                            <p id="welcome-description"></p>
-                            <br>
-                            <p id="welcome-cta"></p>
-                        </div>
-                        
-                        <div id="terminal-history"></div>
-                        
-                        <div class="terminal-input-line">
-                            <span class="prompt">starico@portfolio:~$</span>
-                            <input type="text" id="terminal-input" class="terminal-input" autofocus autocomplete="off" spellcheck="false">
-                            <span class="cursor-blink">|</span>
-                        </div>
+                    <div class="welcome-text">
+                        <p><span style="color: #00ff00;">starico@portfolio:~$</span> welcome</p>
+                        <p>type 'help' for available commands</p>
+                        <br>
+                        <p id="welcome-intro"></p>
+                        <br>
+                        <p id="welcome-description"></p>
+                        <br>
+                        <p id="welcome-cta"></p>
+                    </div>
+
+                    <div id="terminal-history"></div>
+
+                    <div class="terminal-input-line">
+                        <span class="prompt">starico@portfolio:~$</span>
+                        <input type="text" id="terminal-input" class="terminal-input" autofocus autocomplete="off"
+                            spellcheck="false">
+                        <span class="cursor-blink">|</span>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -170,11 +192,12 @@
 
     <!-- PostHog Analytics -->
     <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('YOUR_POSTHOG_KEY',{api_host:'https://app.posthog.com'})
+        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+        posthog.init('YOUR_POSTHOG_KEY', { api_host: 'https://app.posthog.com' })
     </script>
-    
+
     <script src="api.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

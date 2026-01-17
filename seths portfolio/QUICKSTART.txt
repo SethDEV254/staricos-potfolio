@@ -1,0 +1,62 @@
+🚀 SETH CRYPTOLORD PORTFOLIO - QUICK START GUIDE
+================================================
+
+STEP 1: ADD PROFILE IMAGE
+--------------------------
+📸 Place Seth's profile photo in: seths portfolio/images/seth.jpeg
+   (See images/IMAGE_INSTRUCTIONS.txt for details)
+
+STEP 2: OPEN THE PORTFOLIO
+---------------------------
+🌐 Double-click: index.html
+   OR
+   Right-click index.html → Open with → Your Browser
+
+STEP 3: TEST THE TERMINAL
+--------------------------
+💻 Try these commands in the terminal:
+   - Type: help
+   - Type: about
+   - Type: projects
+   - Type: contact
+   - Type: ai what is metahub academy?
+
+STEP 4: CUSTOMIZE (OPTIONAL)
+-----------------------------
+✏️ Update Information:
+   - Contact details: Edit script.js (search for "contact:")
+   - Colors: Edit styles.css (search for ":root")
+   - Content: Edit script.js commands object
+
+STEP 5: DEPLOY (OPTIONAL)
+--------------------------
+🌍 Host Options:
+   - GitHub Pages (free)
+   - Netlify (free)
+   - Vercel (free)
+   - Your own hosting
+
+FEATURES TO EXPLORE:
+-------------------
+✨ Interactive terminal with 15+ commands
+✨ AI assistant (type: ai [your question])
+✨ Dark/Light mode toggle
+✨ 3D profile card effect
+✨ Mobile responsive design
+✨ Live date/time display
+✨ Smooth animations
+
+CONTACT INFORMATION IN PORTFOLIO:
+---------------------------------
+📞 Phone: +254 702 000 987
+📧 Email: info@metahub42@gmail.com
+🌐 Website: metahubacademy.com
+🎥 TikTok: @sethcryptolord
+📺 YouTube: Seth Cryptolord
+
+NEED HELP?
+----------
+Check README.md for detailed documentation
+
+READY TO GO! 🎉
+Your portfolio is set up and ready to showcase Seth's work!

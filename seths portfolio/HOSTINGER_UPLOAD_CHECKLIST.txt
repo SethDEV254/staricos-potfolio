@@ -1,0 +1,71 @@
+🚀 HOSTINGER UPLOAD CHECKLIST
+================================
+
+STEP-BY-STEP GUIDE:
+
+1. LOGIN TO HOSTINGER
+   ✓ Go to: https://hpanel.hostinger.com
+   ✓ Login with your credentials
+
+2. OPEN FILE MANAGER
+   ✓ Click "File Manager" in hPanel
+   ✓ Navigate to "public_html" folder
+
+3. UPLOAD THESE FILES:
+   ✓ index.html (MAIN FILE - REQUIRED)
+   ✓ script.js
+   ✓ styles.css
+   ✓ modern-portfolio.html
+   
+4. UPLOAD IMAGES FOLDER:
+   ✓ Create "images" folder in public_html
+   ✓ Upload seth.png
+   ✓ Upload bbt-logo.png
+
+5. OPTIONAL FILES (Documentation):
+   ✓ README.md
+   ✓ DEPLOY_HOSTINGER.md
+   ✓ QUICKSTART.txt
+
+6. SET PERMISSIONS:
+   ✓ Files: 644
+   ✓ Folders: 755
+
+7. ENABLE SSL:
+   ✓ Go to Hostinger → SSL
+   ✓ Enable SSL certificate
+   ✓ Force HTTPS
+
+8. TEST YOUR SITE:
+   ✓ Visit: https://yourdomain.com
+   ✓ Check all pages load
+   ✓ Test terminal commands
+   ✓ Verify images display
+
+QUICK UPLOAD METHOD:
+====================
+1. Select ALL files in "seths portfolio" folder
+2. Drag and drop into Hostinger File Manager
+3. Wait for upload to complete
+4. Done! ✅
+
+YOUR PORTFOLIO INCLUDES:
+========================
+✅ Interactive terminal
+✅ Seth's avatar
+✅ Moving description
+✅ Company logos
+✅ 15+ commands
+✅ AI assistant
+✅ Mobile responsive
+
+LIVE URL:
+=========
+https://yourdomain.com
+
+NEED HELP?
+==========
+- Hostinger Support: 24/7 Live Chat
+- Read: DEPLOY_HOSTINGER.md for detailed guide
+
+🎉 READY TO GO LIVE!

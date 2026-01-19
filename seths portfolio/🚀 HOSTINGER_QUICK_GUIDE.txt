@@ -1,0 +1,87 @@
+═══════════════════════════════════════════════════════════
+🚀 HOSTINGER DEPLOYMENT - QUICK GUIDE
+═══════════════════════════════════════════════════════════
+
+OPTION 1: VERCEL (FASTEST - 30 SECONDS!) ⚡
+═══════════════════════════════════════════════════════════
+1. Go to: https://vercel.com/new
+2. Click "Import Git Repository"
+3. Paste: https://github.com/SethDEV254/Seths-potfolio
+4. Click "Import" → "Deploy"
+5. DONE! Your site is live!
+
+═══════════════════════════════════════════════════════════
+OPTION 2: HOSTINGER (MANUAL UPLOAD)
+═══════════════════════════════════════════════════════════
+
+STEP 1: ACCESS FILE MANAGER
+------------------------------------------------------------
+1. Login to Hostinger: https://hpanel.hostinger.com
+2. Click on your website/domain
+3. Look for "File Manager" button (usually in Website section)
+4. Click "File Manager" - it will open in new tab
+
+STEP 2: NAVIGATE TO PUBLIC FOLDER
+------------------------------------------------------------
+1. In File Manager, look for folder called "public_html"
+2. Double-click to open it
+3. This is where your website files go
+
+STEP 3: UPLOAD FILES
+------------------------------------------------------------
+METHOD A - Upload ZIP (Easier):
+   1. Look for "Upload" button (top right or top left)
+   2. Click "Upload"
+   3. Select file: seth-portfolio-UPLOAD-THIS.zip
+   4. Wait for upload to complete
+   5. Right-click the ZIP file → "Extract"
+   6. Delete the ZIP file after extraction
+
+METHOD B - Upload Individual Files:
+   1. Click "Upload" button
+   2. Select ALL these files:
+      - index.html
+      - styles.css
+      - script.js
+      - modern-portfolio.html
+   3. Also upload the "images" folder
+   4. Wait for all uploads to complete
+
+STEP 4: CHECK YOUR SITE
+------------------------------------------------------------
+1. Go to your domain: yourdomain.com
+2. You should see Seth's portfolio!
+
+═══════════════════════════════════════════════════════════
+TROUBLESHOOTING
+═══════════════════════════════════════════════════════════
+
+❌ Can't find File Manager button?
+   → Look under "Website" or "Files" section in hPanel
+   → Try searching "File Manager" in the search bar
+
+❌ Can't see Upload button?
+   → Make sure you're INSIDE public_html folder
+   → Look at top toolbar - Upload is usually there
+   → Try refreshing the page
+
+❌ Files uploaded but site not showing?
+   → Make sure files are in public_html (not in subfolder)
+   → Clear your browser cache (Ctrl + F5)
+   → Wait 2-3 minutes for changes to propagate
+
+═══════════════════════════════════════════════════════════
+RECOMMENDATION: USE VERCEL! 🎯
+═══════════════════════════════════════════════════════════
+Vercel is:
+✅ 100x faster (30 seconds vs 30 minutes)
+✅ Automatic updates from GitHub
+✅ Free SSL certificate
+✅ Lightning fast loading
+✅ No manual file uploads needed
+
+Just go to: https://vercel.com/new
+Import: https://github.com/SethDEV254/Seths-potfolio
+Click Deploy → DONE!
+
+═══════════════════════════════════════════════════════════
